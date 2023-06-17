@@ -9,21 +9,28 @@ int main()
     sprintf(palavrasecreta, "MELANCIA"); // Cria a pseudostring palavrasecreta.
 
     int acertou = 0;
-    int enforcou = 1;
+    int enforcou = 0;
     int acertos = 0;
+    char palpite[strlen(palavrasecreta)];
 
     do
     {
-        char chute;
-        printf("Chute uma letra: \n");
-        scanf("%c", &chute);
-
+        printf("\n\n");
         for (int i = 0; i < strlen(palavrasecreta); i++)
         {
-            if (palavrasecreta[i] == chute)
+            if (palpite[i] != palavrasecreta[i])
             {
-                printf("A posicao %d tem essa letra!\n", i);
+                printf("_ ");
+            }
+            else
+            {
+                printf("%c", palavrasecreta[i]);
             }
         }
+        printf("\n\n");
+
+        char chute;
+        printf("Chute uma letra: \n");
+        scanf(" %c", &chute); // Quando for utilizar um scanf para char utilizar " %c" *com o espaco*
     } while (!acertou && !enforcou);
 }
